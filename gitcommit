@@ -1,0 +1,31 @@
+#!/bin/bash -f
+# Pre-Reqs
+# Automate creation of a new git repo using github API tokens
+# Date: 02-08-2020
+# Ver : 0.4
+# Auth: Zee Rizvi @ irsols
+
+echo "git commit automation " 
+echo "  this will do : "
+echo " git add . "
+echo " git tag v<version that you provide as argument> -a <comments>"
+echo " git commit -a <comments> "
+echo " git push -u origin master"
+echo " *** syntax is : "
+echo " gitcommit vX.Y.Z \"comments that you want for tag and commit\""
+echo " where version = vMAJOR.MINOR.PATCH "
+
+if [ -z "$1" ]
+   then
+  echo "Syntax: gitcommit  <version-tag> <comments> "
+  exit 0
+ fi
+
+export VERSION=$1
+export COMMENTS=$2
+/usr/bin/git add --all
+git tag -a $VERSION -m "$COMMENTS"
+git commit -m "$COMMENTS"
+git push 
+git push origin $VERSION
+
