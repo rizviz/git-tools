@@ -1,8 +1,6 @@
 #!/bin/bash -f
-# Pre-Reqs
 # Automate creation of a new git repo using github API tokens
 # Date: 02-08-2020
-# Ver : 0.4
 # Auth: Zee Rizvi @ irsols
 
 echo "git commit automation " 
